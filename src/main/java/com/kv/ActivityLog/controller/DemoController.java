@@ -28,10 +28,11 @@ public class DemoController {
         Exception exp = null;
         try {
             Thread.sleep(5000);
-            Thread.currentThread().interrupt();
+            //  Thread.currentThread().interrupt();
         } catch (InterruptedException e) {
             exp = e;
         }
-        throw new RuntimeException(exp);
+        //throw new RuntimeException(exp);
+        return "SUCCESS!";
     }
 }
