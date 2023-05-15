@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: Activity-Log
+server:
+  port: 8081
+  servlet:
+    context-path: /demo
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include=*:
+logging:
+  level:
+    root: INFO
+    com.kv.ActivityLog: DEBUG
