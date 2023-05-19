@@ -24,15 +24,12 @@ public class DemoController {
 
     @PostMapping("/log")
     public String log(@RequestBody Person person) {
-        log.info("First Name: {}, Last Name: {}", person.getFirstName(), person.getLastName());
-        Exception exp = null;
-        try {
-            Thread.sleep(5000);
-            //  Thread.currentThread().interrupt();
-        } catch (InterruptedException e) {
-            exp = e;
+        log.info("Processing...");
+        Thread.sleep(5000);
+       // Thread.currentThread().interrupt();
+        log.info("completed...");
+        if (Thread.interrupted()) {
+            throw new InterruptedException("THREAD INTERRUPTED");
         }
-        //throw new RuntimeException(exp);
         return "SUCCESS!";
-    }
 }
