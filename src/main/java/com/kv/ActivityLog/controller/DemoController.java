@@ -26,13 +26,14 @@ public class DemoController {
     }
 
     @PostMapping("/log")
-    public String log(@RequestBody Person person) {
+    public String log(@RequestBody Person person) throws Exception {
         log.info("Processing...");
         Thread.sleep(5000);
-       // Thread.currentThread().interrupt();
+        // Thread.currentThread().interrupt();
         log.info("completed...");
         if (Thread.interrupted()) {
             throw new InterruptedException("THREAD INTERRUPTED");
         }
         return "SUCCESS!";
+    }
 }
