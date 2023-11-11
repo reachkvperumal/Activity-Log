@@ -1,6 +1,7 @@
 package com.kv.ActivityLog.controller;
 
 import com.kv.ActivityLog.dto.Person;
+import com.kv.ActivityLog.dto.UserDO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,6 +20,8 @@ public class DemoController {
         String current = zoneId.get();
         String id = Optional.ofNullable(ZoneId.SHORT_IDS.get(current.toUpperCase())).orElseGet(() -> "-05:00");
         log.info("Passed TimeZone: {} - Looked up TimeZone: {}", current, id);
+        UserDO userDO = new UserDO("KV", "Perumal", 36);
+        log.info("Records Demo: {}", userDO);
         return LocalDateTime.now(ZoneId.of(id)).toString();
     }
 
